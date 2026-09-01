@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie-search-app</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+    🎬 <h1>Movie Search <span>App</span></h1>
+    </div>
+
+    <div class="favorites">
+      ❤️ <span>Favorite</span>
+      <span id="favorite-count">0</span>
+    </div>
+  </header>
+
+  <section class="search-section">
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Search for a movie..."
+  
+
+    <button id="search-btn">
+    Search
+    </button>
+    </div>
+
+    <p is="search-result">
+      Search for your favorite movie 🎬
+    </p>
+  </section>
+</main>
+
+    <section class="movie-container">
+      <div id="movie-container" class="movie-container">
+    </div>
+  </section>
+
+  <div id="loading" class="loading">
+
+  </div>
+
+  <div id="error-message" class="error-message">
+    Movie not found. Please try another name.
+  </div>
+
+  <footer class="footer">
+    <p>Made with ❤️ by Yamuna</p>
+  </footer>
+
+</body>
+<script src="script.js"></script>
+</html>
