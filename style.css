@@ -132,9 +132,10 @@ main{
 
 .movie-poster {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: 400px;
+  object-fit: contain;
   display: block;
+  background: #0b0d1d;
 }
 
 .movie-info {
@@ -220,7 +221,7 @@ main{
   color: #ff3d5a;
 }
 
-@media (max-width: 1000px) { 
+ @media (max-width: 1000px) { 
 
   .movie-container { 
    grid-template-columns: repeat(3, 1fr); } } 
@@ -232,4 +233,6 @@ main{
     .header { 
       padding: 18px 4%; 
     } 
-    .logo h1 { font-size: 22px; } };
+    .logo h1 { font-size: 22px; } }; 
+
+  
