@@ -1,17 +1,6 @@
-
-// ===============================
-// MOVIE SEARCH APP
-// ===============================
-
-// OMDb API Key
 const API_KEY = "87a4c25b";
 
 const API_URL = "https://www.omdbapi.com/";
-
-
-// ===============================
-// DOM ELEMENTS
-// ===============================
 
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
@@ -25,19 +14,9 @@ const errorMessage = document.getElementById("error-message");
 
 const favoriteCount = document.getElementById("favorite-count");
 
-
-// ===============================
-// FAVORITES
-// ===============================
-
 let favorites = JSON.parse(
     localStorage.getItem("favoriteMovies")
 ) || [];
-
-
-// ===============================
-// SEARCH BUTTON
-// ===============================
 
 searchBtn.addEventListener("click", () => {
 
@@ -52,11 +31,6 @@ searchBtn.addEventListener("click", () => {
 
     searchMovies(movieName);
 });
-
-
-// ===============================
-// ENTER KEY SEARCH
-// ===============================
 
 searchInput.addEventListener("keydown", (event) => {
 
@@ -76,11 +50,6 @@ searchInput.addEventListener("keydown", (event) => {
 
 });
 
-
-// ===============================
-// SEARCH MOVIES
-// ===============================
-
 async function searchMovies(movieName) {
 
     showLoading();
@@ -97,9 +66,6 @@ async function searchMovies(movieName) {
 
         const data = await response.json();
 
-
-        // Check API response
-
         if (data.Response === "False") {
 
             throw new Error(
@@ -108,17 +74,11 @@ async function searchMovies(movieName) {
 
         }
 
-
-        // Get movie list
-
         const movies = data.Search;
 
 
         searchResult.textContent =
             `Found ${movies.length} results for "${movieName}"`;
-
-
-        // Get detailed information
 
         const detailedMovies = await Promise.all(
 
@@ -150,11 +110,6 @@ async function searchMovies(movieName) {
 
 }
 
-
-// ===============================
-// GET MOVIE DETAILS
-// ===============================
-
 async function getMovieDetails(imdbID) {
 
     const response = await fetch(
@@ -167,11 +122,6 @@ async function getMovieDetails(imdbID) {
 
 }
 
-
-// ===============================
-// DISPLAY MOVIES
-// ===============================
-
 function displayMovies(movies) {
 
     movieContainer.innerHTML = "";
@@ -183,15 +133,9 @@ function displayMovies(movies) {
             return;
         }
 
-
-        // Create movie card
-
         const movieCard = document.createElement("article");
 
-        movieCard.classList.add("movie-card");
-
-
-        // Poster
+        movieCard.classList.add("movie-card")
 
         const poster = document.createElement("img");
 
@@ -204,15 +148,9 @@ function displayMovies(movies) {
 
         poster.alt = `${movie.Title} poster`;
 
-
-        // Movie info
-
         const movieInfo = document.createElement("div");
 
         movieInfo.classList.add("movie-info");
-
-
-        // Title
 
         const title = document.createElement("h2");
 
@@ -220,8 +158,6 @@ function displayMovies(movies) {
 
         title.textContent = movie.Title;
 
-
-        // Favorite button
 
         const favoriteButton =
             document.createElement("button");
@@ -244,8 +180,6 @@ function displayMovies(movies) {
             () => toggleFavorite(movie, favoriteButton)
         );
 
-
-        // Meta information
 
         const meta = document.createElement("div");
 
@@ -270,9 +204,6 @@ function displayMovies(movies) {
 
         meta.appendChild(rating);
         meta.appendChild(year);
-
-
-        // Genre
 
         const genreContainer =
             document.createElement("div");
@@ -300,9 +231,6 @@ function displayMovies(movies) {
 
         }
 
-
-        // Add elements
-
         movieInfo.appendChild(title);
 
         movieInfo.appendChild(favoriteButton);
@@ -321,11 +249,6 @@ function displayMovies(movies) {
 
 }
 
-
-// ===============================
-// FAVORITE CHECK
-// ===============================
-
 function isFavorite(imdbID) {
 
     return favorites.some(
@@ -333,11 +256,6 @@ function isFavorite(imdbID) {
     );
 
 }
-
-
-// ===============================
-// TOGGLE FAVORITE
-// ===============================
 
 function toggleFavorite(movie, button) {
 
@@ -348,8 +266,6 @@ function toggleFavorite(movie, button) {
 
 
     if (existingMovie) {
-
-        // Remove from favorites
 
         favorites =
             favorites.filter(
@@ -362,8 +278,6 @@ function toggleFavorite(movie, button) {
 
     } else {
 
-        // Add to favorites
-
         favorites.push(movie);
 
         button.innerHTML = "♥";
@@ -372,17 +286,11 @@ function toggleFavorite(movie, button) {
 
     }
 
-
     saveFavorites();
 
     updateFavoriteCount();
 
 }
-
-
-// ===============================
-// SAVE FAVORITES
-// ===============================
 
 function saveFavorites() {
 
@@ -393,22 +301,11 @@ function saveFavorites() {
 
 }
 
-
-// ===============================
-// UPDATE FAVORITE COUNT
-// ===============================
-
 function updateFavoriteCount() {
 
     favoriteCount.textContent =
         favorites.length;
-
 }
-
-
-// ===============================
-// LOADING
-// ===============================
 
 function showLoading() {
 
@@ -416,17 +313,11 @@ function showLoading() {
 
 }
 
-
 function hideLoading() {
 
     loading.style.display = "none";
 
 }
-
-
-// ===============================
-// ERROR
-// ===============================
 
 function showError() {
 
@@ -434,17 +325,11 @@ function showError() {
 
 }
 
-
 function hideError() {
 
     errorMessage.style.display = "none";
 
 }
-
-
-// ===============================
-// INITIALIZE APP
-// ===============================
 
 updateFavoriteCount();
 
