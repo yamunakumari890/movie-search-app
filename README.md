@@ -37,15 +37,10 @@ Then use:
 🎯 Future Improvements
 
 🎞️ Movie details popup
-
 ❤️ Dedicated Favorites section
-
 🔎 Advanced filtering
-
 📄 Pagination
-
 🌟 Better movie recommendations
-
 🎨 More UI animations
 
 👩‍💻 Author
