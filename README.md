@@ -36,11 +36,11 @@ Then use:
 
 🎯 Future Improvements
 
-🎞️ Movie details popup
+🎞️ Movie Details popup
 ❤️ Dedicated Favorites section
-🔎 Advanced filtering
+🔎 Advanced filtering 
 📄 Pagination
-🌟 Better movie recommendations
+🌟 Better movie recommendation
 🎨 More UI animations
 
 👩‍💻 Author
