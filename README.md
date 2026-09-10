@@ -45,6 +45,6 @@ Then use:
 
 👩‍💻 Author
 
-Yamuna
+Yamuna Gupta
 
 Built with ❤️ using HTML, CSS and JavaScript.
